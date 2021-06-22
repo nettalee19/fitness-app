@@ -4,19 +4,19 @@ import axios from 'axios';
 
 
 function User() {
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
-  const getUser = async () =>{
-    const data = await axios.get('api/getUser')
-    setUser(data.data)
-  }
+  // const getUser = async () =>{
+  //   const data = await axios.get('api/getUser')
+  //   setUser(data.data)
+  // }
 
-  useEffect(() => {
-    getUser()
-  }, [])
+  // useEffect(() => {
+  //   getUser()
+  // }, [])
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         {user===null? <p>fetching user data</p> : <p>{`Hello ${user.username}`}</p> }
         <a
@@ -27,7 +27,8 @@ function User() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      this is netta---------
     </div>
   );
 }
