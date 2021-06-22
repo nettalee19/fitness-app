@@ -1,18 +1,44 @@
-import React from 'react'
-import './App.css';
-import { Route } from 'react-router';
-import User from './components/user.component';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch,  Route, Redirect } from 'react-router-dom';
+// import { BrowserRouter, Switch, Route } from 'react-router';
+
+import Header from './components/header/Header'
+import StopWatch from './components/Stopwatch/StopWatch'
+import UserPage from './components/UserPage/UserPage';
+import Activity from './components/ActivityPage/Activity';
+import PassedActivity from './components/ActivityPage/PassedActivity';
+import Test from './components/Test/Test';
 
 function App() {
-
   return (
-    <div>
-      <BrowserRouter>
-        <Route exact path='/' component={User} />
-      </BrowserRouter>
+    <BrowserRouter>
+      
+      <div className="App">
+        <Header/>
+        
+        <Switch>
+          <Route exact path='/' component={Test}>
 
-    </div>
+          </Route>
+
+          <Route exact path='/myPage' component={UserPage}>
+          {/* <UserPage/> */}
+          </Route>
+
+          <Route exact path='/myNewActivity' component={Activity}>
+          {/* <Activity/> */}
+          </Route>
+
+          <Route exact path='/myHistoryPage' component={PassedActivity}>
+          {/* <Activity/> */}
+          </Route>
+          
+          {/* <StopWatch/> */}
+
+        </Switch>
+      
+      </div>
+    
+    </BrowserRouter>
   );
 }
 

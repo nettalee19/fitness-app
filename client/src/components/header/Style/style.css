@@ -1,0 +1,34 @@
+:root {
+    /* --main-bg-color: cornflowerblue; */
+    --main-bg-color: #e04b5a;
+    /* --hover-bg-color: #155263; */
+    --second-bg-color: #e49756;
+    --back-bg-color: #5b305a;
+    --third-bg-color: #9a4c68;
+  }
+
+/* * {
+    font-family: 'Lato', sans-serif;
+} */
+
+.header{
+    /* background: var(--second-bg-color); */
+    background: #eaeaea;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerLink{
+    list-style: none;
+    
+}
+
+.LoginRegister{
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+}
+.LoginRegister li{
+    margin-left: 10px;
+}

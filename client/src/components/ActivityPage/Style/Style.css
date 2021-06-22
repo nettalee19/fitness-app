@@ -1,0 +1,17 @@
+/* .ActivityPage{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+} */
+
+.ActivityBox{
+    background-color: #98bce2;
+    /* background-color: #3784d6; */
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
