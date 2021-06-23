@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
   //res.status(200).send("hello")
 });
 
-router.put("/", (req, res) => {
+router.put("/:id", (req, res) => {
   //add auth
   userController.updateUser(req, res);
 });

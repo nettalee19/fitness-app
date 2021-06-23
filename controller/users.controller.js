@@ -13,19 +13,19 @@ const addUser = async (req,res) =>{
     try{
         await user.save()
         console.log(user)
+        res.status(201).send({ user})
     }catch(e){
         res.status(400).send(e)
     }
 }
 
 const updateUser = async (req,res) =>{
-    console.log("hi")
     const updates = Object.keys(req.body)
-    // const allowedUpdate = ["name", "age", "weight","height", "email","password"]
-    // const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
-    // if(!isValidOperation) {
-    //     return res.status(400).send({error: 'Updates most only be regarding credit amount'})
-    // }
+    const allowedUpdate = ["name", "age", "weight","height", "email","password"]
+    const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
+    if(!isValidOperation) {
+        return res.status(400).send({error: 'Updates most only be regarding credit amount'})
+    }
     try{
         updates.forEach((update) => req.user[update] = req.body[update])
         console.log("netta")
@@ -37,10 +37,10 @@ const updateUser = async (req,res) =>{
     }
 }
 
-const deleteMeStudent = async (req,res) =>{
+const deleteUser = async (req,res) =>{
     try{
-        await req.student.remove()
-        res.send(req.student)
+        await req.user.remove()
+        res.send(req.user)
     }
     catch(e){
         res.status(500).send()
@@ -53,5 +53,5 @@ module.exports = {
     addUser,
     getUsers,
     updateUser,
-    deleteMeStudent
+    deleteUser
 }
