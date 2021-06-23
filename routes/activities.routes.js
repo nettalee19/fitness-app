@@ -9,7 +9,7 @@ const activityController = require("../controller/activity.controller");
 // const sharp = require("sharp");
 
 router.get("/", (req, res) => {
-  activityController.getUsers(req, res);
+  activityController.getActivities(req, res);
 });
 
 // router.get("/me", auth, (req, res) => {
@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   console.log("hello23")
-  activityController.addUser(req, res);
+  activityController.addActivity(req, res);
   //res.status(200).send("hello")
 });
 

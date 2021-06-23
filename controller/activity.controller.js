@@ -1,19 +1,19 @@
 //const jwt = require('jsonwebtoken') 
-const Users = require('../models/activity.models')
+const Activities = require('../models/activity.models')
 
-const getUsers = async (req,res) =>{
-    const users = await Users.find()
-    return res.send(users)
+const getActivities = async (req,res) =>{
+    const activities = await Activities.find()
+    return res.send(activities)
 
 }
 
-const addUser = async (req,res) =>{
+const addActivity = async (req,res) =>{
     // console.log(req)
-    const user = new Users(req.body)
+    const activity = new Activities(req.body)
     try{
-        await user.save()
-        console.log(user)
-        res.status(201).send({ user})
+        await activity.save()
+        console.log(activity)
+        res.status(201).send({ activity })
     }catch(e){
         res.status(400).send(e)
     }
@@ -50,8 +50,8 @@ const deleteUser = async (req,res) =>{
 
 
 module.exports = {
-    addUser,
-    getUsers,
+    addActivity,
+    getActivities,
     updateUser,
     deleteUser
 }
