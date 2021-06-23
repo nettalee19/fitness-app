@@ -8,10 +8,10 @@ const app = express();
 
 const usersRoute = require('./routes/users.routes');
 app.use('/users', usersRoute)
-app.use('/',(req,res)=>{
-  res.send({success : 'Bank API'})
+// app.use('/',(req,res)=>{
+//   res.send({success : 'Bank API'})
   
-})
+// })
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

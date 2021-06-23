@@ -8,16 +8,30 @@ const getUsers = async (req,res) =>{
 }
 
 const addUser = async (req,res) =>{
-        const student = new Users(req.body)
-        //console.log(typeof(req.body))
-        try{
-            await student.save()
-            console.log(student)
-            const token = await student.generateAuthToken()
-            res.status(201).send({ student, token})
-        }catch(e){
-            res.status(400).send(e)
-        }
+    const user = new Users(req.body)
+    console.log(user)
+    try{
+        await user.save()
+        console.log(user)
+    }catch(e){
+        res.status(400).send(e)
+    }
+
+    // const {name, age, weight, height, password, email}  = req.body
+
+    // const newUser = new Users({
+    //     name: name,
+    //     age: age,
+    //     weight: weight,
+    //     height: height,
+    //     password: password,
+    //     email: email
+    // })
+    // console.log(newUser)
+    // newUser.save((err) => {
+    //     if (err) return res.status(400).send({"error": err})
+    //     return res.status(200).send({"success": newUser})
+    // });
 }
 
 const updateMeStudent = async (req,res) =>{
