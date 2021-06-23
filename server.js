@@ -10,7 +10,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const usersRoute = require('./routes/users.routes');
+const activitiesRoute = require('./routes/activities.routes');
 app.use('/users', usersRoute)
+app.use('/activities', activitiesRoute)
 // app.use('/',(req,res)=>{
 //   res.send({success : 'Bank API'})
   
