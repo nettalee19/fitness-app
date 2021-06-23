@@ -1,12 +1,33 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 const app = express();
 const path = require('path');
-const os = require('os');
-app.use(cors());
-const port = 8000;
 
-app.get('/api/getUser', (req, res) => res.send({ username: os.userInfo().username }));
+//const usersRoute = require('./routes/users.routes');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
+
+//app.use('/users', usersRoute)
+
+//const server = 'mongodb+srv://nettalee19:dM_HqsyqT9K8LK.@cluster0.u9jns.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+               
+// Connect to db with mongoose
+mongoose.connect('mongodb://localhost/fitness-app', {
+//mongoose.connect(server, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+}).then(() => {
+    console.log("database connected")
+})
+
+const port = 8000;
 
 if (process.env.NODE_ENV === 'production') {
     // Exprees will serve up production assets
