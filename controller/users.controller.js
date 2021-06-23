@@ -8,44 +8,29 @@ const getUsers = async (req,res) =>{
 }
 
 const addUser = async (req,res) =>{
+    // console.log(req)
     const user = new Users(req.body)
-    console.log(user)
     try{
         await user.save()
         console.log(user)
     }catch(e){
         res.status(400).send(e)
     }
-
-    // const {name, age, weight, height, password, email}  = req.body
-
-    // const newUser = new Users({
-    //     name: name,
-    //     age: age,
-    //     weight: weight,
-    //     height: height,
-    //     password: password,
-    //     email: email
-    // })
-    // console.log(newUser)
-    // newUser.save((err) => {
-    //     if (err) return res.status(400).send({"error": err})
-    //     return res.status(200).send({"success": newUser})
-    // });
 }
 
-const updateMeStudent = async (req,res) =>{
+const updateUser = async (req,res) =>{
+    console.log("hi")
     const updates = Object.keys(req.body)
-    const allowedUpdate = ["id", "name", "age", "email","password", "subjects"]
-    const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
-    if(!isValidOperation) {
-        return res.status(400).send({error: 'Updates most only be regarding credit amount'})
-    }
+    // const allowedUpdate = ["name", "age", "weight","height", "email","password"]
+    // const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
+    // if(!isValidOperation) {
+    //     return res.status(400).send({error: 'Updates most only be regarding credit amount'})
+    // }
     try{
-        updates.forEach((update) => req.student[update] = req.body[update])
+        updates.forEach((update) => req.user[update] = req.body[update])
         console.log("netta")
-        await req.student.save()
-        res.send(req.student)
+        await req.user.save()
+        res.send(req.user)
     }
     catch(e){
         res.status(500).send(e)
@@ -67,6 +52,6 @@ const deleteMeStudent = async (req,res) =>{
 module.exports = {
     addUser,
     getUsers,
-    updateMeStudent,
+    updateUser,
     deleteMeStudent
 }

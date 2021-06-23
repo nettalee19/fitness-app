@@ -5,18 +5,18 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
     name:{
         type: String,
-        // required: true,
+        required: true,
         unique: false
     },
     age:{
         type: Number,
-        // required: true,
+        required: true,
         default: 0,
         unique: false
     },
     weight:{
         type: Number,
-        // required: true,
+        required: true,
         default: 0,
         unique: false
     },
@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-        // required: true
+        required: true
     },
     email:{
         type: String,

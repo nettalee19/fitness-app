@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 
 const app = express();
 //const path = require('path');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
 const usersRoute = require('./routes/users.routes');
 app.use('/users', usersRoute)
@@ -13,9 +16,6 @@ app.use('/users', usersRoute)
   
 // })
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
 
 
 //const server = 'mongodb+srv://nettalee19:dM_HqsyqT9K8LK.@cluster0.u9jns.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'

@@ -3,7 +3,7 @@ const router = express.Router();
 const userController = require("../controller/users.controller");
 //const auth = require("../middleware/authStudent");
 
-const Users = require("../models/users.models");
+//const Users = require("../models/users.models");
 
 // const multer = require("multer");
 // const sharp = require("sharp");
@@ -17,10 +17,15 @@ router.get("/", (req, res) => {
 // });
 
 router.post("/", (req, res) => {
+  console.log("hello23")
   userController.addUser(req, res);
   //res.status(200).send("hello")
 });
 
+router.put("/", (req, res) => {
+  //add auth
+  userController.updateUser(req, res);
+});
 // router.put("/me", auth, (req, res) => {
 //   //add auth
 //   userController.updateMeStudent(req, res);
