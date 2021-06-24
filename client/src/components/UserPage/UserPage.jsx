@@ -29,7 +29,8 @@ export default function UserPage() {
     
     return (
         <div>
-            {user.map(u => <h1>{u.name}</h1>)}
+            {/* {user.map(u => <p>{u.name}</p>)}
+            {user.map(u => <p>{u.age}</p>)} */}
            <p>this is me!</p> 
            <p>{dateToday}</p> 
            <p>{totalTime}</p> 

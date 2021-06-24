@@ -20,17 +20,30 @@ const addActivity = async (req,res) =>{
 }
 
 const updateActivity = async (req,res) =>{
-    // const updates = Object.keys(req.body)
-    // const allowedUpdate = ["name", "age", "weight","height", "email","password"]
-    // const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
-    // if(!isValidOperation) {
-    //     return res.status(400).send({error: 'Updates most only be regarding credit amount'})
-    // }
+    const updates = Object.keys(req.body)
+    const allowedUpdate = ["name", "duration", "date","calories"]
+    const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
+    
+    if(!isValidOperation) {
+        return res.status(400).send({error: 'Updates most only be regarding credit amount'})
+    }
+
     try{
-        updates.forEach((update) => req.activity[update] = req.body[update])
-        console.log("netta")
-        await req.user.save()
-        res.send(req.user)
+        const activity = await Activities.findById(req.params.id)
+
+        updates.forEach((update) => activity[update] = req.body[update])
+
+        await activity.save()
+
+        if(!activity){
+            return res.status(404).send()
+        }
+        res.send(activity)
+
+        // updates.forEach((update) => req.activity[update] = req.body[update])
+        // console.log("netta")
+        // await req.user.save()
+        // res.send(req.user)
     }
     catch(e){
         res.status(500).send(e)

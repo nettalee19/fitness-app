@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
-//const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 //const jwt = require('jsonwebtoken')
+
+//validator
 
 const UserSchema = new mongoose.Schema({
     name:{
@@ -38,6 +40,18 @@ const UserSchema = new mongoose.Schema({
         type: String,
         unique: true
     },
+})
+
+
+UserSchema.pre('save', async function (next) {
+    const user = this
+
+    //console.log("just before saving")
+    if (user.isModified('password')) {
+        user.password = await bcrypt.hash(user.password, 8)
+    }
+
+    next()
 })
 
 const Users = mongoose.model('users', UserSchema)
