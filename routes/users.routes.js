@@ -1,26 +1,32 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controller/users.controller");
-//const auth = require("../middleware/authStudent");
+const auth = require("../middleware/auth");
 
-//const Users = require("../models/users.models");
+const Users = require("../models/users.models");
 
 // const multer = require("multer");
 // const sharp = require("sharp");
+
+
+
+
 
 router.get("/", (req, res) => {
   userController.getUsers(req, res);
 });
 
-// router.get("/me", auth, (req, res) => {
-//   res.send(req.student);
-// });
+
+router.get("/me", auth, (req, res) => {
+  res.send(req.user);
+});
+
 
 router.post("/", (req, res) => {
-  console.log("hello23")
   userController.addUser(req, res);
   //res.status(200).send("hello")
 });
+
 
 router.put("/:id", (req, res) => {
   //add auth
@@ -36,43 +42,42 @@ router.put("/:id", (req, res) => {
 //   userController.deleteMeStudent(req, res);
 // });
 
-// router.post("/login", async (req, res) => {
-//   try {
-//     const student = await Users.findByCredentials(
-//       req.body.email,
-//       req.body.password
-//     );
-//     const token = await student.generateAuthToken();
-//     res.send({ student, token });
-//     //res.send({ student })
-//   } catch (e) {
-//     res.status(400).send();
-//   }
-// });
+router.post("/login", async (req, res) => {
+  try {
+    const user = await Users.findByCredentials(
+      req.body.email,
+      req.body.password
+    );
+    //res.send({ user })
+    const token = await user.generateAuthToken();
+    res.send({ user, token });
+  } catch (e) {
+    res.status(400).send();
+  }
+});
 
-// router.post("/logout", auth, async (req, res) => {
-//   try {
-//     req.student.tokens = req.student.tokens.filter((token) => {
-//       return token.token !== req.token;
-//     });
-//     await req.student.save();
+router.post("/logout", auth, async (req, res) => {
+  try {
+    req.user.tokens = req.user.tokens.filter((token) => {
+      return token.token !== req.token;
+    });
+    await req.user.save();
 
-//     res.send();
-//   } catch (e) {
-//     res.status(500).send();
-//   }
-// });
+    res.send();
+  } catch (e) {
+    res.status(500).send();
+  }
+});
 
-// router.post("/logoutAll", auth, async (req, res) => {
-//   try {
-//     req.student.tokens = [];
-//     await req.student.save();
-
-//     res.send();
-//   } catch (e) {
-//     res.status(500).send();
-//   }
-// });
+router.post("/logoutAll", auth, async (req, res) => {
+  try {
+    req.user.tokens = [];
+    await req.user.save();
+    res.send();
+  } catch (e) {
+    res.status(500).send();
+  }
+});
 
 // // router.put('/addToFav', auth, async (req,res) =>{
 // //     try{

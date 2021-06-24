@@ -1,4 +1,4 @@
-//const jwt = require('jsonwebtoken') 
+const jwt = require('jsonwebtoken') 
 const Users = require('../models/users.models')
 
 const getUsers = async (req,res) =>{
@@ -12,8 +12,8 @@ const addUser = async (req,res) =>{
     const user = new Users(req.body)
     try{
         await user.save()
-        console.log(user)
-        res.status(201).send({ user})
+        const token = await user.generateAuthToken()
+        res.status(201).send({ user, token})
     }catch(e){
         res.status(400).send(e)
     }
