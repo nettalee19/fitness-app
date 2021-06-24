@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
 
 router.put("/:id", (req, res) => {
   //add auth
-  activityController.updateUser(req, res);
+  activityController.updateActivity(req, res);
 });
 // router.put("/me", auth, (req, res) => {
 //   //add auth

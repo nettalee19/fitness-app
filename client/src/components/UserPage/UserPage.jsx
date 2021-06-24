@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
+import api from '../ApiSource/api'
+
 export default function UserPage() {
     const [dateToday, setDateToday] = useState(0)
     const [totalTime, setTotalTime] = useState(0)
     const [calories, setCalories] = useState(0)
     const [activity, setActivity] = useState(null)
+
+    const [user, setUser] = useState([])
+
+    const getUser = async() =>{
+        try{
+            const {data} = await api("/users")
+            setUser(data)
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+    getUser()
 
     function saveNewActivity (dateToday){
         setDateToday(dateToday)
@@ -14,6 +29,7 @@ export default function UserPage() {
     
     return (
         <div>
+            {user.map(u => <h1>{u.name}</h1>)}
            <p>this is me!</p> 
            <p>{dateToday}</p> 
            <p>{totalTime}</p> 

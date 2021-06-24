@@ -19,15 +19,15 @@ const addActivity = async (req,res) =>{
     }
 }
 
-const updateUser = async (req,res) =>{
-    const updates = Object.keys(req.body)
-    const allowedUpdate = ["name", "age", "weight","height", "email","password"]
-    const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
-    if(!isValidOperation) {
-        return res.status(400).send({error: 'Updates most only be regarding credit amount'})
-    }
+const updateActivity = async (req,res) =>{
+    // const updates = Object.keys(req.body)
+    // const allowedUpdate = ["name", "age", "weight","height", "email","password"]
+    // const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
+    // if(!isValidOperation) {
+    //     return res.status(400).send({error: 'Updates most only be regarding credit amount'})
+    // }
     try{
-        updates.forEach((update) => req.user[update] = req.body[update])
+        updates.forEach((update) => req.activity[update] = req.body[update])
         console.log("netta")
         await req.user.save()
         res.send(req.user)
@@ -52,6 +52,6 @@ const deleteUser = async (req,res) =>{
 module.exports = {
     addActivity,
     getActivities,
-    updateUser,
+    updateActivity,
     deleteUser
 }

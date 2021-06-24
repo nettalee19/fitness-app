@@ -7,6 +7,7 @@ import UserPage from './components/UserPage/UserPage';
 import Activity from './components/ActivityPage/Activity';
 import PassedActivity from './components/ActivityPage/PassedActivity';
 import Test from './components/Test/Test';
+import api from './components/ApiSource/api'
 
 function App() {
   return (
