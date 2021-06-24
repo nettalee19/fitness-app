@@ -28,19 +28,18 @@ router.post("/", (req, res) => {
 });
 
 
-router.put("/:id", (req, res) => {
-  //add auth
-  userController.updateUser(req, res);
-});
-// router.put("/me", auth, (req, res) => {
+// router.put("/:id", (req, res) => {
 //   //add auth
-//   userController.updateMeStudent(req, res);
+//   userController.updateUser(req, res);
 // });
 
-// router.delete("/me", auth, (req, res) => {
-//   //add auth
-//   userController.deleteMeStudent(req, res);
-// });
+router.put("/me", auth, (req, res) => {
+  userController.updateUser(req, res);
+});
+
+router.delete("/me", auth, (req, res) => {
+  userController.deleteUser(req, res);
+});
 
 router.post("/login", async (req, res) => {
   try {

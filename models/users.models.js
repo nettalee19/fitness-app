@@ -49,6 +49,27 @@ const UserSchema = new mongoose.Schema({
 })
 
 
+UserSchema.virtual('activities', {
+    ref: 'activities',
+    localField:'_id',
+    foreignField:'owner'
+
+}) 
+
+
+//not public
+UserSchema.methods.toJSON = function (){
+    const user = this
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+    //delete userObject.avatars
+
+
+    return userObject
+}
+
 //token
 UserSchema.methods.generateAuthToken = async function (){
     const user = this

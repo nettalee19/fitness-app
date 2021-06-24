@@ -1,31 +1,49 @@
 const express = require("express");
 const router = express.Router();
 const activityController = require("../controller/activity.controller");
-//const auth = require("../middleware/authStudent");
-
-//const Users = require("../models/users.models");
+const auth = require("../middleware/auth");
+const Activity = require('../models/activity.models')
 
 // const multer = require("multer");
 // const sharp = require("sharp");
 
-router.get("/", (req, res) => {
+router.get("/", auth, (req, res) => {
   activityController.getActivities(req, res);
 });
+
+//TODO 
+// router.get("/:id", auth, (req, res) => {
+//   const _id = req.params.id
+   
+//   try{
+//       //const task = await Lesson.findOne({ _id, owner: req.user._id })
+//       const activity = await Activity.findOne({ _id, owner: req.user._id })
+        
+//       if(!activity){
+//           return res.status(404).send()
+//       }
+
+//       res.send(activity)
+//   }catch(e){
+//       res.status(500).send(e)
+//   }
+// });
 
 // router.get("/me", auth, (req, res) => {
 //   res.send(req.student);
 // });
 
-router.post("/", (req, res) => {
-  console.log("hello23")
+//TODO
+router.post("/", auth, (req, res) => {
   activityController.addActivity(req, res);
   //res.status(200).send("hello")
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id",auth, (req, res) => {
   //add auth
   activityController.updateActivity(req, res);
 });
+
 // router.put("/me", auth, (req, res) => {
 //   //add auth
 //   userController.updateMeStudent(req, res);

@@ -27,22 +27,22 @@ const updateUser = async (req,res) =>{
     if(!isValidOperation) {
         return res.status(400).send({error: 'Updates most only be regarding credit amount'})
     }
+
     try{
-        const user = await Users.findById(req.params.id)
+        //const user = await Users.findById(req.params.id)
 
-        updates.forEach((update) => user[update] = req.body[update])
+        // updates.forEach((update) => user[update] = req.body[update])
 
-        await user.save()
+        // await user.save()
 
-        if(!user){
-            return res.status(404).send()
-        }
-        res.send(user)
+        // if(!user){
+        //     return res.status(404).send()
+        // }
+        // res.send(user)
         
-        // updates.forEach((update) => req.user[update] = req.body[update])
-        // console.log("netta")
-        // await req.user.save()
-        // res.send(req.user)
+        updates.forEach((update) => req.user[update] = req.body[update])
+        await req.user.save()
+        res.send(req.user)
     }
     catch(e){
         res.status(500).send(e)
@@ -53,6 +53,8 @@ const deleteUser = async (req,res) =>{
     try{
         await req.user.remove()
         res.send(req.user)
+        //const user = await Users.findByIdAndDelete(req.user._id)
+        
     }
     catch(e){
         res.status(500).send()
