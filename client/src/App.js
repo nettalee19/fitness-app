@@ -17,8 +17,9 @@ function App() {
         <Header/>
         
         <Switch>
-          <Route exact path='/' component={Test}>
-
+          <Route exact path='/'>
+          {/* <Route exact path='/' component={Test}> */}
+          <p>your recent works:</p>
           </Route>
 
           <Route exact path='/myPage' component={UserPage}>

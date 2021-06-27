@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import "./Style/Style.css"
 
-export default function StopWatch({timeSaver}) {
+export default function StopWatch({timeSaver, secondSaver}) {
     const [timer, setTimer] = useState(0)
     const [isActive, setIsActive] = useState(false) //whether the timer is working
     const [isPaused, setIsPaused] = useState(false) //whther the timer is paused
@@ -55,9 +55,16 @@ export default function StopWatch({timeSaver}) {
 
 
     }
+    let allSeconds
+    const onlySeconds = () => {
+        allSeconds = timer
+        return allSeconds
+    }
+    onlySeconds()
 
     const handleSave = () =>{
         timeSaver(timeTotal)
+        secondSaver(allSeconds)
     }
 
     //TODO add stop&save activity: stop -> save/remove ->
@@ -70,6 +77,7 @@ export default function StopWatch({timeSaver}) {
             <h3>Stopwatch</h3>
             <div className="stopwatch-card">
                 <p>{formatTime()}</p>
+                {/* <p>{onlySeconds()}</p> */}
                 <div className="buttons">
                     {
                         !isActive && !isPaused ? 
