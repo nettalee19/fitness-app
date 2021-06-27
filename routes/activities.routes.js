@@ -7,8 +7,10 @@ const Activity = require('../models/activity.models')
 // const multer = require("multer");
 // const sharp = require("sharp");
 
-router.get("/", auth, (req, res) => {
-  activityController.getActivities(req, res);
+router.get("/", async(req, res) => {
+  //activityController.getActivities(req, res);
+  const activities = await Activity.find()
+  return res.send(activities) 
 });
 
 
