@@ -42,7 +42,7 @@ const updateActivity = async (req,res) =>{
 
     try{
         //const activity = await Activities.findById(req.params.id)
-        const activity = await Activities.findOne({_id: req.params.id, owner:req.params._id})
+        const activity = await Activities.findOne({ _id: req.params.id, owner:req.user._id})
 
         if(!activity){
             return res.status(404).send()
@@ -57,19 +57,19 @@ const updateActivity = async (req,res) =>{
         // res.send(req.user)
     }
     catch(e){
-        res.status(500).send(e)
+        res.status(400).send(e)
     }
 }
 
-const deleteUser = async (req,res) =>{
-    try{
-        await req.user.remove()
-        res.send(req.user)
-    }
-    catch(e){
-        res.status(500).send()
-    }
-}
+// const deleteActivity = async (req,res) =>{
+//     try{
+//         await req.user.remove()
+//         res.send(req.user)
+//     }
+//     catch(e){
+//         res.status(500).send()
+//     }
+// }
 
 
 
@@ -77,5 +77,5 @@ module.exports = {
     addActivity,
     getActivities,
     updateActivity,
-    deleteUser
+    //deleteActivity
 }

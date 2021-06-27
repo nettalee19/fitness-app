@@ -11,38 +11,70 @@ router.get("/", auth, (req, res) => {
   activityController.getActivities(req, res);
 });
 
-//TODO 
-// router.get("/:id", auth, (req, res) => {
-//   const _id = req.params.id
-   
-//   try{
-//       //const task = await Lesson.findOne({ _id, owner: req.user._id })
-//       const activity = await Activity.findOne({ _id, owner: req.user._id })
-        
-//       if(!activity){
-//           return res.status(404).send()
-//       }
 
-//       res.send(activity)
-//   }catch(e){
-//       res.status(500).send(e)
-//   }
-// });
+//get all my activities
+router.get("/me", auth, (req, res) => {
+  activityController.getActivities(req, res);
+});
+
+
+
+
+//after login- get a specific activity i dod
+router.get("/:id", auth, async (req, res) => {
+  const _id = req.params.id
+   
+  try{
+      //const task = await Lesson.findOne({ _id, owner: req.user._id })
+      const activity = await Activity.findOne({ _id, owner: req.user._id })
+        
+      if(!activity){
+          return res.status(404).send()
+      }
+
+      res.send(activity)
+  }catch(e){
+      res.status(500).send(e)
+  }
+});
 
 // router.get("/me", auth, (req, res) => {
 //   res.send(req.student);
 // });
 
-//TODO
+
+
+
 router.post("/", auth, (req, res) => {
   activityController.addActivity(req, res);
   //res.status(200).send("hello")
 });
 
-router.put("/:id",auth, (req, res) => {
-  //add auth
+router.put("/:id",auth, async(req, res) => {
   activityController.updateActivity(req, res);
+
 });
+
+
+router.delete("/:id",auth, async(req, res) => {
+  //add auth
+  //activityController.deleteActivity(req, res);
+
+  try{
+    const activity = await Activity.findOneAndDelete({ _id:req.params.id, owner: req.user._id })
+    
+    if(!activity){
+      res.status(404).send()
+    }
+    res.send(activity)
+  }catch(e){
+    res.status(500).send()
+  }
+});
+
+
+
+
 
 // router.put("/me", auth, (req, res) => {
 //   //add auth
