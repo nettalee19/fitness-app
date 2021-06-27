@@ -1,18 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Child from './Child'
+import "./style.css"
 
 export default function Test() {
+    const [myName, setMyName] = useState(null)
     
-    function yourName(e){
-        console.log(e.target.value)
-        const name = e.target.value
-        // return name
+    const yourName = (n) => {
+        setMyName(n)
     }
-    // yourName(e)
+    
 
     return (
-        <div>
-            Apparently your name is: 
+        <div class="parent">
+           <p>Apparently your name is: {myName}</p> 
             <Child yourName={yourName}/>
         </div>
     )
