@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const Activity = require('./activity.models')
 
 //validator
 
@@ -107,6 +108,15 @@ UserSchema.pre('save', async function (next) {
     if (user.isModified('password')) {
         user.password = await bcrypt.hash(user.password, 8)
     }
+
+    next()
+})
+
+//delete user tasks one he's deleted
+UserSchema.pre('remove', async function (next) {
+    const user = this
+
+    await Activity.deleteMany({ owner: user._id})
 
     next()
 })
