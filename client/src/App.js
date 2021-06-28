@@ -1,15 +1,31 @@
+import React, { useState } from 'react'
 import { BrowserRouter, Switch,  Route, Redirect } from 'react-router-dom';
 // import { BrowserRouter, Switch, Route } from 'react-router';
 
 import Header from './components/header/Header'
-import StopWatch from './components/Stopwatch/StopWatch'
+//import StopWatch from './components/Stopwatch/StopWatch'
 import UserPage from './components/UserPage/UserPage';
 import Activity from './components/ActivityPage/Activity';
 import PassedActivity from './components/ActivityPage/PassedActivity';
-import Test from './components/Test/Test';
+//import Test from './components/Test/Test';
 import api from './components/ApiSource/api'
 
+
 function App() {
+  const [user, setUser] = useState([])
+  
+  const getUser = async() =>{
+    try{
+        const {data} = await api("/users")
+        setUser(data)
+    }
+    catch(error){
+        console.log(error)
+    }
+  }
+  getUser()
+
+  
   return (
     <BrowserRouter>
       
