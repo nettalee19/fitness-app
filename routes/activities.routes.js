@@ -1,83 +1,31 @@
 const express = require("express");
 const router = express.Router();
 const activityController = require("../controller/activity.controller");
-const auth = require("../middleware/auth");
-const Activity = require('../models/activity.models')
+//const auth = require("../middleware/authStudent");
+
+//const Users = require("../models/users.models");
 
 // const multer = require("multer");
 // const sharp = require("sharp");
 
-router.get("/", async(req, res) => {
-  //activityController.getActivities(req, res);
-  const activities = await Activity.find()
-  return res.send(activities) 
-});
-
-
-//get all my activities
-router.get("/me", auth, (req, res) => {
+router.get("/", (req, res) => {
   activityController.getActivities(req, res);
-});
-
-
-
-
-//after login- get a specific activity i dod
-router.get("/:id", auth, async (req, res) => {
-  const _id = req.params.id
-   
-  try{
-      //const task = await Lesson.findOne({ _id, owner: req.user._id })
-      const activity = await Activity.findOne({ _id, owner: req.user._id })
-        
-      if(!activity){
-          return res.status(404).send()
-      }
-
-      res.send(activity)
-  }catch(e){
-      res.status(500).send(e)
-  }
 });
 
 // router.get("/me", auth, (req, res) => {
 //   res.send(req.student);
 // });
 
-
-
-
-router.post("/", auth, (req, res) => {
+router.post("/", (req, res) => {
+  console.log("hello23")
   activityController.addActivity(req, res);
   //res.status(200).send("hello")
 });
 
-router.put("/:id",auth, async(req, res) => {
-  activityController.updateActivity(req, res);
-
-});
-
-
-router.delete("/:id",auth, async(req, res) => {
+router.put("/:id", (req, res) => {
   //add auth
-  //activityController.deleteActivity(req, res);
-
-  try{
-    const activity = await Activity.findOneAndDelete({ _id:req.params.id, owner: req.user._id })
-    
-    if(!activity){
-      res.status(404).send()
-    }
-    res.send(activity)
-  }catch(e){
-    res.status(500).send()
-  }
+  activityController.updateActivity(req, res);
 });
-
-
-
-
-
 // router.put("/me", auth, (req, res) => {
 //   //add auth
 //   userController.updateMeStudent(req, res);

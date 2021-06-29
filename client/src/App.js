@@ -50,12 +50,13 @@ function App() {
           <p>your recent works:</p>
           {/* {user.map(u => <p>{u.name}</p>)}
           {user.map(u => <p>{u.age}</p>)} */}
-          {/* {activity.map(a => <p>{a.name}</p>)} */}
+          {activity.map(a => <p>{a.name}</p>)}
           </Route>
 
-          <Route exact path='/myPage' component={UserPage} >
+          <Route exact path='/myPage' >
           
-          {/* <UserPage/> */}
+            <UserPage />
+            {/* <UserPage activity={activity} user={user}/> */}
           </Route>
 
           <Route exact path='/myNewActivity' component={Activity}>

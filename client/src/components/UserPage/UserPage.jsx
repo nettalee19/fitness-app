@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import api from '../ApiSource/api'
 
-export default function UserPage(props) {
+export default function UserPage({activity, user}) {
     const [dateToday, setDateToday] = useState(0)
     const [totalTime, setTotalTime] = useState(0)
     const [calories, setCalories] = useState(0)
-    const [activity, setActivity] = useState(null)
+    // const [activity, setActivity] = useState(null)
 
     // const [user, setUser] = useState([])
 
@@ -29,17 +29,9 @@ export default function UserPage(props) {
     
     return (
         <div>
-            {/* {user.map(u => <p>{u.name}</p>)}
-            {user.map(u => <p>{u.age}</p>)} */}
-
-            {/* {props.user.map(u => <p>{u.name}</p>)} */}
-            {/* {props.activity.map(u => <p>{u.name}</p>)} */}
-
-           <p>this is me!</p> 
-           <p>{dateToday}</p> 
-           <p>{totalTime}</p> 
-           <p>{calories}</p> 
-           <p>{activity}</p>  
+            
+            {/* {activity.map(u => <p>{u.name}</p>)}
+            {user.map(u => <p>{u.name}</p>)} */}
 
             <button><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>add new Activity</Link></button>
             {/* <button><Link to="/myPassedActivity">add passed Activity</Link></button> */}

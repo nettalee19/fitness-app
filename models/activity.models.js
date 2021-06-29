@@ -25,12 +25,7 @@ const ActivitySchema = new mongoose.Schema({
         required: true,
         default: 0,
         unique: false
-    },
-    owner:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'users'
-    },
+    }
     
 })
 
