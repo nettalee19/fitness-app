@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 
 import api from '../ApiSource/api'
 
-export default function UserPage() {
+export default function UserPage(props) {
     const [dateToday, setDateToday] = useState(0)
     const [totalTime, setTotalTime] = useState(0)
     const [calories, setCalories] = useState(0)
     const [activity, setActivity] = useState(null)
 
-    const [user, setUser] = useState([])
+    // const [user, setUser] = useState([])
 
-    const getUser = async() =>{
-        try{
-            const {data} = await api("/users")
-            setUser(data)
-        }
-        catch(error){
-            console.log(error)
-        }
-    }
-    getUser()
+    // const getUser = async() =>{
+    //     try{
+    //         const {data} = await api("/users")
+    //         setUser(data)
+    //     }
+    //     catch(error){
+    //         console.log(error)
+    //     }
+    // }
+    // getUser()
 
     function saveNewActivity (dateToday){
         setDateToday(dateToday)
@@ -31,6 +31,10 @@ export default function UserPage() {
         <div>
             {/* {user.map(u => <p>{u.name}</p>)}
             {user.map(u => <p>{u.age}</p>)} */}
+
+            {/* {props.user.map(u => <p>{u.name}</p>)} */}
+            {/* {props.activity.map(u => <p>{u.name}</p>)} */}
+
            <p>this is me!</p> 
            <p>{dateToday}</p> 
            <p>{totalTime}</p> 

@@ -13,6 +13,7 @@ import api from './components/ApiSource/api'
 
 function App() {
   const [user, setUser] = useState([])
+  const [activity, setActivity] = useState([])
   
   const getUser = async() =>{
     try{
@@ -25,6 +26,17 @@ function App() {
   }
   getUser()
 
+  const getActivity = async() =>{
+    try{
+        const {data} = await api("/activities")
+        setActivity(data)
+    }
+    catch(error){
+        console.log(error)
+    }
+  }
+  getActivity()
+
   
   return (
     <BrowserRouter>
@@ -36,9 +48,13 @@ function App() {
           <Route exact path='/'>
           {/* <Route exact path='/' component={Test}> */}
           <p>your recent works:</p>
+          {/* {user.map(u => <p>{u.name}</p>)}
+          {user.map(u => <p>{u.age}</p>)} */}
+          {/* {activity.map(a => <p>{a.name}</p>)} */}
           </Route>
 
-          <Route exact path='/myPage' component={UserPage}>
+          <Route exact path='/myPage' component={UserPage} >
+          
           {/* <UserPage/> */}
           </Route>
 
