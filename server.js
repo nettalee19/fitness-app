@@ -4,13 +4,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const app = express();
-//const path = require('path');
+const path = require('path');
+
+const usersRoute = require('./routes/users.routes');
+const activitiesRoute = require('./routes/activities.routes');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const usersRoute = require('./routes/users.routes');
-const activitiesRoute = require('./routes/activities.routes');
 app.use('/users', usersRoute)
 app.use('/activities', activitiesRoute)
 // app.use('/',(req,res)=>{
