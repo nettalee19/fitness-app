@@ -30,8 +30,8 @@ export default function UserPage({activity, user}) {
     return (
         <div>
             
-            {/* {activity.map(u => <p>{u.name}</p>)}
-            {user.map(u => <p>{u.name}</p>)} */}
+            {activity.map(u => <p>{u.name}</p>)}
+            {user.map(u => <p>{u.name}</p>)}
 
             <button><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>add new Activity</Link></button>
             {/* <button><Link to="/myPassedActivity">add passed Activity</Link></button> */}
