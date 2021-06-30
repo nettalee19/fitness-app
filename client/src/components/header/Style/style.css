@@ -17,8 +17,8 @@
 } */
 
 .header{
-    background: var(--color2-bg-color);
-    /* background: #eaeaea; */
+    /* background: var(--color2-bg-color); */
+    background: #eaeaea;
     height: 8vh;
     display: flex;
     justify-content: space-between;
