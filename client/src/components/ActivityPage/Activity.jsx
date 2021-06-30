@@ -35,7 +35,7 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
                 {/* <p>Calories Burn: { Math.round(timerSeconds*0.089)} </p> */}
                 <p>Calories Burn: { parseFloat(timerSeconds*0.089).toFixed(2)} </p>
                 {/* <p>Activity: Dancing </p> */}
-                <p> Activity: {}
+                {/* <p> Activity: {}
                 <select name="activity" id="activity">
                     <option value="aerobics">Aerobics</option>
                     <option value="yoga">Yoga</option>
@@ -43,7 +43,8 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
                     <option value="tennis">Tennis</option>
                 </select>
 
-                </p>
+                </p> */}
+                <p>Activity: </p>
                 <button onClick={saveNewActivity}>Save New Activity</button>
             </div>
             <div>

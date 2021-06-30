@@ -5,6 +5,11 @@
     --second-bg-color: #e49756;
     --back-bg-color: #5b305a;
     --third-bg-color: #9a4c68;
+
+    --color1-bg-color: #eb6383;
+    --color2-bg-color: #fa9191;
+    --color3-bg-color: #ffe9c5;
+    --color4-bg-color: #b4f2e1;
   }
 
 /* * {
@@ -12,8 +17,8 @@
 } */
 
 .header{
-    /* background: var(--second-bg-color); */
-    background: #eaeaea;
+    background: var(--color2-bg-color);
+    /* background: #eaeaea; */
     height: 8vh;
     display: flex;
     justify-content: space-between;
