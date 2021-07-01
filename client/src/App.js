@@ -6,7 +6,7 @@ import Header from "./components/header/Header";
 //import StopWatch from './components/Stopwatch/StopWatch'
 import UserPage from "./components/UserPage/UserPage";
 import Activity from "./components/ActivityPage/Activity";
-import PassedActivity from "./components/ActivityPage/PassedActivity";
+import PassedActivity from "./components/History/PassedActivity";
 //import Test from './components/Test/Test';
 import api from "./components/ApiSource/api";
 
@@ -63,7 +63,7 @@ function App() {
           </Route>
 
           <Route exact path="/myHistoryPage" component={PassedActivity}>
-            {/* <Activity/> */}
+            <PassedActivity activity={activity}/>
           </Route>
 
           {/* <StopWatch/> */}

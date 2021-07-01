@@ -1,0 +1,14 @@
+.all-activities{
+    /* display: flex; */
+}
+.activity-box{
+    background-color: rgb(227, 202, 240);
+    margin: 0 auto 20px;
+    
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    /* position: relative; */
+    border-radius: 10px;
+    /* display: flex; */
+}

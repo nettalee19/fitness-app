@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-
+import './style/Style.css'
 import api from '../ApiSource/api'
 
-export default function UserPage({activity, user}) {
+export default function UserPage({user}) {
     const [dateToday, setDateToday] = useState(0)
     const [totalTime, setTotalTime] = useState(0)
     const [calories, setCalories] = useState(0)
@@ -29,8 +29,29 @@ export default function UserPage({activity, user}) {
     
     return (
         <div>
-            
-            {activity.map(u => <p>{u.name}</p>)}
+            <div >
+            <div className="all-users">
+                {user.map(u => {
+                    return <div className="user-box">
+                        <h2>{u.name}</h2>
+                        <div>
+                            <p>{u.age}</p>
+                            <p>{u.weight} kg</p>
+                            <p>{u.height} cm</p>
+                            <p>{u.email}</p>
+
+                        </div>
+                    </div>
+                        })
+
+                }
+
+            </div>
+
+        </div>
+
+
+
             {user.map(u => <p>{u.name}</p>)}
 
             <button><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>add new Activity</Link></button>
