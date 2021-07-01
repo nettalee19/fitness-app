@@ -6,21 +6,21 @@ import './Style/style.css'
 export default function Header() {
     
     return (
-        <div className="above-header">
-        <div className="header">
-            <ul className="headerLink">
-                <li><Link to="/">Homepage</Link></li>
-            </ul>
-            <ul className="headerLink LoginRegister">
-                <li><Link to="/myNewActivity">New Activity</Link></li>
-                <li><Link to="/myPage">My Page</Link></li>
-                <li><Link to="/myHistoryPage">Activties' History</Link></li>
-            </ul>
-            <ul className="headerLink LoginRegister">
-                <li>Login</li>
-                <li>Register</li>
-            </ul>
-        </div>
+        <div className="above-header ">
+            <div className="header ">
+                <ul >
+                    <Link to="/" className="home-link"><li className="header-link">Homepage</li></Link>
+                </ul>
+                <ul className="headerLink LoginRegister">
+                    <Link to="/myNewActivity" className="home-link"><li className="header-link">New Activity</li></Link>
+                    <Link to="/myPage" className="home-link"><li className="header-link">My Page</li></Link>
+                    <Link to="/myHistoryPage" className="home-link"><li className="header-link">Activties' History</li></Link>
+                </ul>
+                <ul className="headerLink LoginRegister">
+                    <li className="header-link">Login</li>
+                    <li className="header-link">Register</li>
+                </ul>
+            </div>
 
         </div>
     )
