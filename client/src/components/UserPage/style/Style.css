@@ -9,3 +9,21 @@
     border-radius: 10px;
     /* display: flex; */
 }
+
+.user-page-layout{
+    margin: 0 auto 20px;
+    display: flex;
+}
+
+.user-buttons{
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    margin: 20px 0 0 20px;
+    transition: 0.3s;
+    
+}
+.user-buttons:hover{
+    background: chocolate;
+    
+}

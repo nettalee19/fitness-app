@@ -29,34 +29,32 @@ export default function UserPage({user}) {
     
     return (
         <div>
-            <div >
-            <div className="all-users">
-                {user.map(u => {
-                    return <div className="user-box">
-                        <h2>{u.name}</h2>
-                        <div>
-                            <p>{u.age}</p>
-                            <p>{u.weight} kg</p>
-                            <p>{u.height} cm</p>
-                            <p>{u.email}</p>
+            <div className="user-page-layout">
+                <div className="all-users">
+                    {user.map(u => {
+                        return <div className="user-box">
+                            <h2>{u.name}</h2>
+                            <div>
+                                <p>{u.age}</p>
+                                <p>{u.weight} kg</p>
+                                <p>{u.height} cm</p>
+                                <p>{u.email}</p>
 
+                            </div>
                         </div>
-                    </div>
-                        })
+                    })}
 
-                }
+                </div>
 
+                <button className="user-buttons"><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>Start new Activity</Link></button>
+                {/* <button><Link to="/myPassedActivity">add passed Activity</Link></button> */}
+                <button className="user-buttons"><Link to="/myHistoryPage">Activties' History</Link></button>
             </div>
-
-        </div>
 
 
 
             {/* {user.map(u => <p>{u.name}</p>)} */}
 
-            <button><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>Start new Activity</Link></button>
-            {/* <button><Link to="/myPassedActivity">add passed Activity</Link></button> */}
-            <button><Link to="/myHistoryPage">Activties' History</Link></button>
 
             
         </div>

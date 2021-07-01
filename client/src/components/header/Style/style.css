@@ -27,12 +27,14 @@
     
 } */
 .home-link{
+    color: var(--third-bg-color);
     text-decoration: none;
     margin: auto;
     text-align: center;
+    transition: 0.5s;
 }
 .home-link:hover{
-    font-weight: 600;
+    /* font-weight: 500; */
     color: var(--color1-bg-color);
 }
 
