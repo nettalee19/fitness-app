@@ -6,6 +6,7 @@ import './Style/style.css'
 export default function Header() {
     
     return (
+        <div className="above-header">
         <div className="header">
             <ul className="headerLink">
                 <li><Link to="/">Homepage</Link></li>
@@ -19,6 +20,8 @@ export default function Header() {
                 <li>Login</li>
                 <li>Register</li>
             </ul>
+        </div>
+
         </div>
     )
 }

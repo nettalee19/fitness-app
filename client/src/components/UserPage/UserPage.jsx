@@ -52,9 +52,9 @@ export default function UserPage({user}) {
 
 
 
-            {user.map(u => <p>{u.name}</p>)}
+            {/* {user.map(u => <p>{u.name}</p>)} */}
 
-            <button><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>add new Activity</Link></button>
+            <button><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>Start new Activity</Link></button>
             {/* <button><Link to="/myPassedActivity">add passed Activity</Link></button> */}
             <button><Link to="/myHistoryPage">Activties' History</Link></button>
 

@@ -1,0 +1,10 @@
+@media(max-width: 600px){
+    .above-header{
+        position: relative;
+    }
+    .header{
+        position: fixed;
+        bottom: 0px;
+        z-index: 1;
+    }
+}

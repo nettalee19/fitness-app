@@ -10,6 +10,8 @@ import PassedActivity from "./components/History/PassedActivity";
 //import Test from './components/Test/Test';
 import api from "./components/ApiSource/api";
 
+import './components/Mobile/mobile.css'
+
 function App() {
   const [user, setUser] = useState([]);
   const [activity, setActivity] = useState([]);
