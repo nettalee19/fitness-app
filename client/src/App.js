@@ -9,6 +9,7 @@ import Activity from "./components/ActivityPage/Activity";
 import PassedActivity from "./components/History/PassedActivity";
 //import Test from './components/Test/Test';
 import api from "./components/ApiSource/api";
+import Login from "./components/Login/Login";
 
 import './components/Mobile/mobile.css'
 
@@ -64,8 +65,13 @@ function App() {
             {/* <Activity/> */}
           </Route>
 
+
           <Route exact path="/myHistoryPage" component={PassedActivity}>
             <PassedActivity activity={activity}/>
+          </Route>
+
+          <Route exact path="/login" component={Login}>
+            
           </Route>
 
           {/* <StopWatch/> */}

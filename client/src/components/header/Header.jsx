@@ -17,7 +17,7 @@ export default function Header() {
                     <Link to="/myHistoryPage" className="home-link"><li className="header-link">History</li></Link>
                 </ul>
                 <ul className="headerLink LoginRegister">
-                    <Link to="/" className="home-link"><li className="header-link">Login</li></Link>
+                    <Link to="/login" className="home-link"><li className="header-link">Login</li></Link>
                     <Link to="/" className="home-link"><li className="header-link">Register</li></Link>
                 </ul>
             </div>
