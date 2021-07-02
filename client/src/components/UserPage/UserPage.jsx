@@ -1,27 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import './style/Style.css'
 import api from '../ApiSource/api'
 
-export default function UserPage({user}) {
+export default function UserPage() {
     const [dateToday, setDateToday] = useState(0)
     const [totalTime, setTotalTime] = useState(0)
     const [calories, setCalories] = useState(0)
     // const [activity, setActivity] = useState(null)
 
-    // const [user, setUser] = useState([])
 
-    // const getUser = async() =>{
-    //     try{
-    //         const {data} = await api("/users")
-    //         setUser(data)
-    //     }
-    //     catch(error){
-    //         console.log(error)
-    //     }
-    // }
-    // getUser()
 
+
+
+    const [user, setUser] = useState([])
+    const [token] = useState(localStorage.getItem("token"));
+
+    const getUser = async() =>{
+        const data = await api.get("/users/me", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+      
+        setUser(data.data);
+        console.log(user);
+    }
+    
+    useEffect(() => {
+        getUser();
+      }, []);
+    
+    
+    
     function saveNewActivity (dateToday){
         setDateToday(dateToday)
     }
@@ -31,6 +40,20 @@ export default function UserPage({user}) {
         <div>
             <div className="user-page-layout">
                 <div className="all-users">
+                     <div className="user-box">
+                            <h2>{user.name}</h2>
+                            <div>
+                                <p>{user.age}</p>
+                                <p>{user.weight} kg</p>
+                                <p>{user.height} cm</p>
+                                <p>{user.email}</p>
+
+                            </div>
+                        </div>
+
+                </div>
+
+                {/* <div className="all-users">
                     {user.map(u => {
                         return <div className="user-box">
                             <h2>{u.name}</h2>
@@ -44,7 +67,8 @@ export default function UserPage({user}) {
                         </div>
                     })}
 
-                </div>
+                </div> */}
+                
 
                 <button className="user-buttons"><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>Start new Activity</Link></button>
                 {/* <button><Link to="/myPassedActivity">add passed Activity</Link></button> */}
