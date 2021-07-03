@@ -5,6 +5,8 @@ export default function ActivityBox({activity}) {
     
     return (
         <div >
+
+
             <div className="all-activities">
                 {activity.map(a => {
                     return <div className="activity-box">
@@ -20,10 +22,10 @@ export default function ActivityBox({activity}) {
 
                 }
 
+            </div>
                 {/* {activity.map(a => <p>{a.date}</p>)}
                 {activity.map(a => <p>{a.duration}</p>)}
                 {activity.map(a => <p>{a.calories}</p>)} */}
-            </div>
 
         </div>
     )
