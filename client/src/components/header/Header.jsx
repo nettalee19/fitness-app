@@ -18,7 +18,7 @@ export default function Header() {
                 </ul>
                 <ul className="headerLink LoginRegister">
                     <Link to="/login" className="home-link"><li className="header-link">Login</li></Link>
-                    <Link to="/" className="home-link"><li className="header-link">Register</li></Link>
+                    <Link to="/register" className="home-link"><li className="header-link">Register</li></Link>
                 </ul>
             </div>
 
