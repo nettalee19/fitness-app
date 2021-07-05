@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect, Link } from "react-router-dom";
 // import { BrowserRouter, Switch, Route } from 'react-router';
 
 import Header from "./components/header/Header";
@@ -11,6 +11,7 @@ import PassedActivity from "./components/History/PassedActivity";
 import api from "./components/ApiSource/api";
 import Login from "./components/Login/Login";
 import Register from "./components/Login/Register";
+import MainPage from "./components/MainPage/MainPage";
 
 import './components/Mobile/mobile.css'
 
@@ -50,7 +51,8 @@ function App() {
         <Switch>
           <Route exact path="/">
             {/* <Route exact path='/' component={Test}> */}
-            <p>your recent works:</p>
+            {/* <Link to="/login">Login</Link> */}
+            <MainPage/>
             {/* {user.map(u => <p>{u.name}</p>)}
           {user.map(u => <p>{u.age}</p>)} */}
             {/* {activity.map(a => <p>{a.name}</p>)} */}

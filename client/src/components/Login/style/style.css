@@ -3,3 +3,17 @@
     width: 300px;
     margin-top: 20px;
 }
+
+.logout-btn{
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: var(--third-bg-color);
+    transition: 0.5s;
+}
+
+.logout-btn:hover{
+    color: var(--color1-bg-color);
+}
+
+

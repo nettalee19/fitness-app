@@ -1,4 +1,5 @@
 import React , { useState } from 'react'
+import { Link } from "react-router-dom";
 import api from '../ApiSource/api'
 
 export default function Login() {
@@ -25,13 +26,14 @@ export default function Login() {
 
     return (
         <div>
-            hi netta this is login
+            
             <p>email: 
             <input type="email" onChange={(e) => setEmail(e.target.value)}/></p>
             <p>password: 
             <input type="password" onChange={(e) => setPassword(e.target.value)}/></p>
             
-            <button onClick={login}>Sign in</button>
+            <button onClick={login}>Sign in</button> <br />
+            Already a member?<button><Link to="/register">Sign up</Link></button>
 
         </div>
     )
