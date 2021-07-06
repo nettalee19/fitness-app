@@ -48,7 +48,7 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
             name: activityName,
             date: today,
             duration: timerSave,
-            calories: 450
+            calories: calMeas
          //    owner: 
         };
 
@@ -59,6 +59,8 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
         ).then(console.log).catch(console.log());
     }
 
+    const calMeas = parseFloat(timerSeconds*0.089).toFixed(2)
+
     return (
         <div className="ActivityPage">
             {/* this is a new activity */}
@@ -67,7 +69,9 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
                 <p>Date: {today} </p>
                 <p>Total Time: {timerSave === 0 ? "00 : 00 : 00" : timerSave} </p>
                 {/* <p>Calories Burn: { Math.round(timerSeconds*0.089)} </p> */}
-                <p>Calories Burn: { parseFloat(timerSeconds*0.089).toFixed(2)} </p>
+                
+                {/* <p>Calories Burn: { parseFloat(timerSeconds*0.089).toFixed(2)} </p> */}
+                <p>Calories Burn: { calMeas } </p>
                 
                 {/* <p>Activity: <input type="text" onChange={e => setName(e.target.value)}/><button onClick={saveName()}>save</button></p> */}
                 {/* {name} */}
