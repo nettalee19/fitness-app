@@ -2,11 +2,14 @@ import React, { useState, useEffect} from 'react'
 import StopWatch from '../Stopwatch/StopWatch'
 import moment from 'moment';
 import "./Style/Style.css"
+import api from '../ApiSource/api';
 
 export default function Activity({dateToday, totalTime, calories, activity}) {
     const [timerSave, setTimerSave] = useState(0)
     const [timerSeconds, setTimerSeconds] = useState(0)
     const [dateSave, setDateSave] = useState(0)
+
+    const [token] = useState(localStorage.getItem("token"));
     
     function timeSaver (timeMes){
         setTimerSave(timeMes)
@@ -18,11 +21,26 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
 
     let today = moment().format('DD.MM.YYYY')
 
-    function saveNewActivity(){
-        dateToday = today;
-        // totalTime = timerSave;
-        // calories = 300;
-        // activity = "Tennis"
+
+
+    const saveNewActivity = async(e) => {
+        e.preventDefault();
+
+        const config = {
+			headers: { Authorization: `Bearer ${token}` }
+		};
+
+        const bodyParameters = {
+            today,
+            timerSave,
+         //    owner: 
+        };
+
+        await api.post( 
+            '/activities',
+            bodyParameters,
+            config
+        ).then(console.log).catch(console.log());
     }
 
     return (

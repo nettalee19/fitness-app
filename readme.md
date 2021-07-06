@@ -5,4 +5,6 @@
 ### •npm install
 
 ### •npm run client-install -->
-After installing- npm run dev
+Hi! welcome to my fitness app! 
+
+(In order to tun- After installing please type in terminal "npm run dev")
