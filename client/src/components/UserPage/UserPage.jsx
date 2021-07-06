@@ -22,7 +22,8 @@ export default function UserPage() {
           });
       
         setUser(data.data);
-        console.log(user);
+        console.log("netttt");
+        // console.log(user);
     }
     
     useEffect(() => {
@@ -41,12 +42,12 @@ export default function UserPage() {
             <div className="user-page-layout">
                 <div className="all-users">
                      <div className="user-box">
-                            <h2>{user.name}</h2>
+                            <h2><i class="fas fa-running"></i>  {user.name}</h2>
                             <div>
                                 <p>{user.age}</p>
-                                <p>{user.weight} kg</p>
+                                <p><i class="fas fa-weight"></i>  {user.weight} kg</p>
                                 <p>{user.height} cm</p>
-                                <p>{user.email}</p>
+                                <p><i class="fas fa-envelope-open-text"></i>  {user.email}</p>
 
                             </div>
                         </div>

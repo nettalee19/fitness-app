@@ -8,7 +8,7 @@ export default function ActivityBox({activity, deleteAnActivity}) {
             <div className="all-activities">
                 {activity.map(a => {
                     return <div className="activity-box">
-                        <button className="activity-box-btn" onClick={deleteAnActivity}>X</button>
+                        <button className="activity-box-btn" onClick={deleteAnActivity}>XX</button>
                         <h2>{a.name}</h2>
                         <div>
                             <p>{a.date}</p>

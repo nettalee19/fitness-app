@@ -29,7 +29,7 @@ export default function PassedActivity() {
 
     const deleteAnActivity = async(_id) =>{
         try{
-            // console.log("ofir")
+            console.log("ofir")
             await api.delete(`/activities/${_id}`,{
                 headers: { Authorization: `Bearer ${token}` },
             })
@@ -49,23 +49,28 @@ export default function PassedActivity() {
     return (
         <div>
             <h1>History:</h1>
-            {activities.map(a => {
+            {/* {activities.map(a => {
                 return <>
                 <div>
                     <div className="activity-box">
-                        <button className="activity-box-btn" onClick={deleteAnActivity}>X</button>
+                        <button className="activity-box-btn" onClick={deleteAnActivity}><i class="fas fa-trash"></i></button>
+                        
                         <h2>{a.name}</h2>
                         <div>
-                            <p>{a.date}</p>
-                            <p>{a.duration} min</p>
+                            <p><i class="fas fa-calendar-day"></i>  {a.date} </p>
+                            <p><i class="fas fa-stopwatch"></i>  {a.duration} min</p>
                             <p>{a.calories} cal</p>
 
                         </div>
                     </div>
                 </div>
                 </>
-            })}
+            })} */}
 
+            <ActivityBox activity={activities} deleteAnActivity={deleteAnActivity}/>
+            
+            
+            
             {/* <ActivityBox activity={activity} id={activity.id} deleteAnActivity={() => deleteAnActivity(activity.id)}/> */}
             
             
