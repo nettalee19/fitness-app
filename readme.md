@@ -5,4 +5,4 @@
 ### •npm install
 
 ### •npm run client-install -->
-netta!!
+After installing- npm run dev
