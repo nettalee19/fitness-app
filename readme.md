@@ -7,4 +7,4 @@
 ### •npm run client-install -->
 Hi! welcome to my fitness app! 
 
-(In order to tun- After installing please type in terminal "npm run dev")
+(In order to run- After installing please type in terminal "npm run dev")

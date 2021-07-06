@@ -9,13 +9,13 @@ const ActivitySchema = new mongoose.Schema({
         unique: false
     },
     duration:{
-        type: Number,
+        type: String,
         required: true,
         default: 0,
         unique: false
     },
     date:{
-        type: Number,
+        type: String,
         required: true,
         default: 0,
         unique: false

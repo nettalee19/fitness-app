@@ -3,14 +3,22 @@ import StopWatch from '../Stopwatch/StopWatch'
 import moment from 'moment';
 import "./Style/Style.css"
 import api from '../ApiSource/api';
+import ActivityName from './ActivityName';
 
 export default function Activity({dateToday, totalTime, calories, activity}) {
-    const [timerSave, setTimerSave] = useState(0)
+    //const [name, setName] = useState(null)
+    const [activityName, setActivityName] = useState(null) //name
+    
+    const [timerSave, setTimerSave] = useState(0) //duration
     const [timerSeconds, setTimerSeconds] = useState(0)
+    
     const [dateSave, setDateSave] = useState(0)
 
     const [token] = useState(localStorage.getItem("token"));
     
+
+
+
     function timeSaver (timeMes){
         setTimerSave(timeMes)
     }
@@ -20,6 +28,12 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
     }
 
     let today = moment().format('DD.MM.YYYY')
+
+    const saveActivityName = (n) =>{
+        setActivityName(n)
+    }
+
+
 
 
 
@@ -31,8 +45,10 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
 		};
 
         const bodyParameters = {
-            today,
-            timerSave,
+            name: activityName,
+            date: today,
+            duration: timerSave,
+            calories: 450
          //    owner: 
         };
 
@@ -52,17 +68,12 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
                 <p>Total Time: {timerSave === 0 ? "00 : 00 : 00" : timerSave} </p>
                 {/* <p>Calories Burn: { Math.round(timerSeconds*0.089)} </p> */}
                 <p>Calories Burn: { parseFloat(timerSeconds*0.089).toFixed(2)} </p>
-                {/* <p>Activity: Dancing </p> */}
-                {/* <p> Activity: {}
-                <select name="activity" id="activity">
-                    <option value="aerobics">Aerobics</option>
-                    <option value="yoga">Yoga</option>
-                    <option value="pilaties">Pilaties</option>
-                    <option value="tennis">Tennis</option>
-                </select>
+                
+                {/* <p>Activity: <input type="text" onChange={e => setName(e.target.value)}/><button onClick={saveName()}>save</button></p> */}
+                {/* {name} */}
 
-                </p> */}
-                <p>Activity: </p>
+                {/* {activityName} */}
+                <ActivityName saveActivityName={saveActivityName}/>
                 <button onClick={saveNewActivity}>Save New Activity</button>
             </div>
             <div>
