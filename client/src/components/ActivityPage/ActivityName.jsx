@@ -5,11 +5,13 @@ export default function ActivityName({saveActivityName}) {
 
     const handleSave = () =>{
         saveActivityName(name)
+        console.log(name)
     }
 
     return (
         <div>
-            <p>Activity: <input type="text" onChange={e => setName(e.target.value)}/><button onClick={handleSave}>Save Name</button></p>
+            <p>Activity: <input type="text" onChange={e => setName(e.target.value)}/><button onClick={handleSave}><i class="fas fa-check"></i></button></p>
+            {/* <p>Activity: <input type="text" onChange={e => setName(e.target.value)}/><button onClick={handleSave}>Save Name</button></p> */}
             {/* {name} */}
 
 

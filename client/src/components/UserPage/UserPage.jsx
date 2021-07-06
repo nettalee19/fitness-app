@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import './style/Style.css'
 import api from '../ApiSource/api'
+import AddNotLiveActivity from '../ActivityPage/AddNotLiveActivity';
 
 export default function UserPage() {
     const [dateToday, setDateToday] = useState(0)
@@ -75,6 +76,8 @@ export default function UserPage() {
                 {/* <button><Link to="/myPassedActivity">add passed Activity</Link></button> */}
                 <button className="user-buttons"><Link to="/myHistoryPage">Activties' History</Link></button>
             </div>
+
+            <AddNotLiveActivity/>
 
 
 
