@@ -1,10 +1,12 @@
 import React , { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import api from '../ApiSource/api'
 
 export default function Login() {
     const [email, setEmail ] = useState('')
     const [password, setPassword ] = useState('')
+
+    const history = useHistory();
     
     const login = async (e) => {
         e.preventDefault();
@@ -15,6 +17,8 @@ export default function Login() {
                 password,
             })
             localStorage.setItem("token", data.token)
+            //history.go(0);
+            history.push(`/`).go(0)
             console.log(data.token)
             console.log(data.user.name)
             console.log(data.user.age)

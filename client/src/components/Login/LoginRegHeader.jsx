@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import "./style/style.css"
 
 export default function LoginRegHeader() {
     const [token] = useState(localStorage.getItem("token"));
+    const history = useHistory();
 
     const SignOut = async () =>{
         try{
             localStorage.removeItem("token", token)
+            history.push(`/`).go(0);
+            //history.push(`/`)
         }catch(e){
             console.log(e)
         }
