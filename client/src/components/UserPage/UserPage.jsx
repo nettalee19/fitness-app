@@ -48,6 +48,7 @@ export default function UserPage() {
                                 <p>{user.age}</p>
                                 <p><i class="fas fa-weight"></i>  {user.weight} kg</p>
                                 <p>{user.height} cm</p>
+                                <p>{user.gender}</p>
                                 <p><i class="fas fa-envelope-open-text"></i>  {user.email}</p>
 
                             </div>
