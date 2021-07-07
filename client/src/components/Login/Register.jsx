@@ -43,14 +43,14 @@ export default function Register() {
             
             {/* <p>Gender: <input type="text" onChange={(e) => setGender(e.target.value)}/></p> */}
             <p>Gender: 
-            <input type="radio" id="male" name="male" value="Male" onChange={(e) => setGender(e.target.value)}/>
+            <input type="radio" id="male" name="gender" value="Male" onChange={(e) => setGender(e.target.value)}/>
             <label for="male">Male</label>
-            <input type="radio" id="female" name="female" value="Female" onChange={(e) => setGender(e.target.value)}/>
+            <input type="radio" id="female" name="gender" value="Female" onChange={(e) => setGender(e.target.value)}/>
             <label for="female">Female</label>
             </p>
 
-            <p>email: <input type="text" onChange={(e) => setEmail(e.target.value)}/></p>
-            <p>password: <input type="text" onChange={(e) => setPassword(e.target.value)}/></p>
+            <p>email: <input type="email" onChange={(e) => setEmail(e.target.value)}/></p>
+            <p>password: <input type="password" onChange={(e) => setPassword(e.target.value)}/></p>
 
             <button onClick={registerFunc}>Register</button>
             
