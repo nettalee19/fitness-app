@@ -29,6 +29,8 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
 
     let today = moment().format('DD.MM.YYYY')
 
+
+    
     const saveActivityName = (n) =>{
         setActivityName(n)
     }
@@ -78,6 +80,11 @@ export default function Activity({dateToday, totalTime, calories, activity}) {
 
                 {/* {activityName} */}
                 <ActivityName saveActivityName={saveActivityName}/>
+                
+                
+                {/* <ActivityName saveActivityName={saveActivityName}/> */}
+
+
                 <button onClick={saveNewActivity}>Save New Activity</button>
             </div>
             <div>

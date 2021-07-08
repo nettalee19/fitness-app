@@ -34,10 +34,10 @@ router.put("/me", auth, (req, res) => {
 //   userController.updateMeStudent(req, res);
 // });
 
-// router.delete("/me", auth, (req, res) => {
-//   //add auth
-//   userController.deleteMeStudent(req, res);
-// });
+router.delete("/me", auth, (req, res) => {
+  //add auth
+  userController.deleteUser(req, res);
+});
 
 router.post("/login", async (req, res) => {
   try {

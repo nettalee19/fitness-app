@@ -37,6 +37,15 @@ export default function UserPage() {
         setDateToday(dateToday)
     }
 
+    const deleteMeUser = async() =>{
+        const data = await api.delete("/users/me",{
+            headers: { Authorization: `Bearer ${token}` }
+        })
+        localStorage.removeItem("token", data.token)
+        console.log("User just got deleted")
+        setUser(data.data)
+    }
+
     
     return (
         <div>
@@ -45,11 +54,12 @@ export default function UserPage() {
                      <div className="user-box">
                             <h2><i class="fas fa-running"></i>  {user.name}</h2>
                             <div>
+                                <p><i class="fas fa-envelope-open-text"></i>  {user.email}</p>
+                                <p>{user.gender}</p>
                                 <p>{user.age}</p>
                                 <p><i class="fas fa-weight"></i>  {user.weight} kg</p>
                                 <p>{user.height} cm</p>
-                                <p>{user.gender}</p>
-                                <p><i class="fas fa-envelope-open-text"></i>  {user.email}</p>
+                                <button onClick={deleteMeUser}>Delete User</button>
 
                             </div>
                         </div>
@@ -73,9 +83,11 @@ export default function UserPage() {
                 </div> */}
                 
 
-                <button className="user-buttons"><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>Start new Activity</Link></button>
+                {/* <button className="user-buttons"><Link to="/myNewActivity" saveNewActivity={saveNewActivity}>Start new Activity</Link></button>
+                <button className="user-buttons"><Link to="/myHistoryPage">Activties' History</Link></button> */}
+                
+                
                 {/* <button><Link to="/myPassedActivity">add passed Activity</Link></button> */}
-                <button className="user-buttons"><Link to="/myHistoryPage">Activties' History</Link></button>
             </div>
 
             <AddNotLiveActivity/>

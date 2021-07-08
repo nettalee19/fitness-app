@@ -1,19 +1,20 @@
 .user-box{
     background-color: rgb(227, 202, 240);
-    margin: 0 auto 20px;
+    margin: 0 auto ;
+    /* margin: 0 auto 20px; */
     
     width: 300px;
-    height: 200px;
+    height: 300px;
     text-align: center;
     /* position: relative; */
     border-radius: 10px;
     /* display: flex; */
 }
 
-.user-page-layout{
+/* .user-page-layout{
     margin: 0 auto 20px;
     display: flex;
-}
+} */
 
 .user-buttons{
     height: 50px;
