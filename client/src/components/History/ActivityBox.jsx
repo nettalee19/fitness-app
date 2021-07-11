@@ -6,7 +6,7 @@ import "./style/Style.css"
 //export default function ActivityBox({activity}) {
 export default function ActivityBox({activity, deleteAnActivity}) {
     const [token] = useState(localStorage.getItem("token"));
-    const [deleteActivity, setDeleteActivity] = useState("")
+    //const [deleteActivity, setDeleteActivity] = useState("")
 
 // const deleteAnActivity = async(_id) =>{
 //         try{
@@ -24,7 +24,7 @@ export default function ActivityBox({activity, deleteAnActivity}) {
 //     }
 
     const deleteActivity2 = async(id) =>{
-        console.log("netta deleted this")
+        // console.log("netta deleted this")
         console.log(id)
 
         try{
@@ -32,8 +32,8 @@ export default function ActivityBox({activity, deleteAnActivity}) {
             headers: { Authorization: `Bearer ${token}` },
         })
                         
-        setDeleteActivity(id)
-        console.log(deleteActivity)
+        //setDeleteActivity(id)
+        //console.log(deleteActivity)
                         
         }catch(e){
             console.log(e)
