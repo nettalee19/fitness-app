@@ -29,13 +29,12 @@ export default function PassedActivity() {
 
     const deleteAnActivity = async(_id) =>{
         try{
-            console.log("ofir")
             await api.delete(`/activities/${_id}`,{
                 headers: { Authorization: `Bearer ${token}` },
             })
-            // console.log(activities._id)
+            
             setDeleteActivity(_id)
-            // console.log(deleteActivity)
+            
         }catch(e){
             console.log(e)
         }

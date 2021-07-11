@@ -12,6 +12,7 @@ import api from "./components/ApiSource/api";
 import Login from "./components/Login/Login";
 import Register from "./components/Login/Register";
 import MainPage from "./components/MainPage/MainPage";
+import UpdateAccount from "./components/UserPage/UpdateAccount";
 
 import './components/Mobile/mobile.css'
 
@@ -78,6 +79,10 @@ function App() {
           </Route>
           <Route exact path="/register" component={Register}>
             
+          </Route>
+
+          <Route exact path="/updateAccount">
+            <UpdateAccount/>
           </Route>
 
           {/* <StopWatch/> */}
