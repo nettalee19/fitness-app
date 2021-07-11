@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import api from '../ApiSource/api';
+import DeleteBtn from './DeleteBtn';
 import "./style/Style.css"
 
 //export default function ActivityBox({activity}) {
 export default function ActivityBox({activity, deleteAnActivity}) {
-    //const [token] = useState(localStorage.getItem("token"));
-    //const [deleteActivity, setDeleteActivity] = useState("")
+    const [token] = useState(localStorage.getItem("token"));
+    const [deleteActivity, setDeleteActivity] = useState("")
 
 // const deleteAnActivity = async(_id) =>{
 //         try{
@@ -22,6 +23,24 @@ export default function ActivityBox({activity, deleteAnActivity}) {
 //         }
 //     }
 
+    const deleteActivity2 = async(id) =>{
+        console.log("netta deleted this")
+        console.log(id)
+
+        try{
+            await api.delete(`/activities/${id}`,{
+            headers: { Authorization: `Bearer ${token}` },
+        })
+                        
+        setDeleteActivity(id)
+        console.log(deleteActivity)
+                        
+        }catch(e){
+            console.log(e)
+        }
+
+    }
+
     return (
         <div >
             <div className="all-activities">
@@ -33,12 +52,16 @@ export default function ActivityBox({activity, deleteAnActivity}) {
                             <p>{a.date}</p>
                             <p>{a.duration} min</p>
                             <p>{a.calories} cal</p>
+                            <div>
+                                <DeleteBtn id={a._id} deleteActivity2={ () => deleteActivity2(a._id)}/>
 
+                            </div>
                         </div>
                     </div>
                         })
 
                 }
+                
 
             </div>
                 {/* {activity.map(a => <p>{a.date}</p>)}

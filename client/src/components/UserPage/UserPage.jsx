@@ -4,8 +4,6 @@ import './style/Style.css'
 import api from '../ApiSource/api'
 import AddNotLiveActivity from '../ActivityPage/AddNotLiveActivity';
 
-import UpdateAccount from './UpdateAccount';
-
 export default function UserPage() {
     const [dateToday, setDateToday] = useState(0)
     const [totalTime, setTotalTime] = useState(0)
@@ -25,7 +23,7 @@ export default function UserPage() {
           });
       
         setUser(data.data);
-        //console.log("netttt");
+        console.log("netttt");
         // console.log(user);
     }
     
@@ -61,9 +59,7 @@ export default function UserPage() {
                                 <p>{user.age}</p>
                                 <p><i class="fas fa-weight"></i>  {user.weight} kg</p>
                                 <p>{user.height} cm</p>
-                                <p><Link to="/updateAccount" >Update Account</Link></p>
-                                {/* <p><Link to="/updateAccount" user={user}><UpdateAccount/></Link></p> */}
-                                <button onClick={deleteMeUser}>Delete Account</button>
+                                <button onClick={deleteMeUser}>Delete User</button>
 
                             </div>
                         </div>
@@ -79,11 +75,9 @@ export default function UserPage() {
                                 <p>{u.weight} kg</p>
                                 <p>{u.height} cm</p>
                                 <p>{u.email}</p>
-
                             </div>
                         </div>
                     })}
-
                 </div> */}
                 
 
