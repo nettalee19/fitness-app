@@ -23,8 +23,6 @@ export default function UserPage() {
           });
       
         setUser(data.data);
-        console.log("netttt");
-        // console.log(user);
     }
     
     useEffect(() => {

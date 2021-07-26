@@ -25,7 +25,7 @@ const updateUser = async (req,res) =>{
     const isValidOperation = updates.every((update) => allowedUpdate.includes(update))
     
     if(!isValidOperation) {
-        return res.status(400).send({error: 'Updates most only be regarding credit amount'})
+        return res.status(400).send({error: 'Updates are not valid'})
     }
 
     try{

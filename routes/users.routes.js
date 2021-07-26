@@ -3,14 +3,10 @@ const router = express.Router();
 const userController = require("../controller/users.controller");
 const auth = require("../middleware/auth");
 
-
 const Users = require("../models/users.models");
 
 // const multer = require("multer");
 // const sharp = require("sharp");
-
-
-
 
 router.get("/", (req, res) => {
   userController.getUsers(req, res);
