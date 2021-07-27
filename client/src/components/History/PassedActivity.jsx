@@ -19,8 +19,6 @@ export default function PassedActivity() {
             headers: { Authorization: `Bearer ${token}` },
         })
         setActivities(data.data)
-        //console.log(activities) //returns all user's activities
-        //console.log(activities.id) //returns all user's activities
     }
 
     useEffect(() => {
@@ -40,51 +38,13 @@ export default function PassedActivity() {
         }
     }
 
-    // useEffect(() => {
-    //     deleteAnActivity()
-    // }, [])
-    
 
     return (
         <div>
             <h1>History:</h1>
-            {/* {activities.map(a => {
-                return <>
-                <div>
-                    <div className="activity-box">
-                        <button className="activity-box-btn" onClick={deleteAnActivity}><i class="fas fa-trash"></i></button>
-                        
-                        <h2>{a.name}</h2>
-                        <div>
-                            <p><i class="fas fa-calendar-day"></i>  {a.date} </p>
-                            <p><i class="fas fa-stopwatch"></i>  {a.duration} min</p>
-                            <p>{a.calories} cal</p>
-
-                        </div>
-                    </div>
-                </div>
-                </>
-            })} */}
 
             <ActivityBox activity={activities} deleteAnActivity={deleteAnActivity}/>
-            
-            
-            
-            {/* <ActivityBox activity={activity} id={activity.id} deleteAnActivity={() => deleteAnActivity(activity.id)}/> */}
-            
-            
-            {/* {activity.map (a =>{
-                if(a.owner === user._id)
-            })} */}
-            
-            {/* <ActivityBox activity={activity}/> */}
 
-
-
-
-            {/* {activity.map(a => <p>{a.name}</p>)} */}
-            {/* {activity.map(a => <p>{a.calories}</p>)} */}
-            {/* <Calender value={value} onChange={setValue}/> */}
         </div>
     )
 }
