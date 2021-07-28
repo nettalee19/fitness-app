@@ -29,7 +29,7 @@ export default function Login() {
     }
 
     return (
-        <div>
+        <div className="login-form">
             
             <p>email: 
             <input type="email" onChange={(e) => setEmail(e.target.value)}/></p>

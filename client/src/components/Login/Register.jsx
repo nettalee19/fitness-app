@@ -34,7 +34,6 @@ export default function Register() {
     }
     return (
         <div className="register-form">
-            this is register
 
             <p>Name: <input type="text" onChange={(e) => setName(e.target.value)}/></p>
             <p>Age: <input type="number" onChange={(e) => setAge(e.target.value)}/></p>
