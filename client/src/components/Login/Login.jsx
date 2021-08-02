@@ -30,10 +30,10 @@ export default function Login() {
 
     return (
         <div className="login-form">
-            
+            <h2>Login</h2>
             <p>email: 
             <input type="email" onChange={(e) => setEmail(e.target.value)}/></p>
-            <p>password: 
+            <p>password:
             <input type="password" onChange={(e) => setPassword(e.target.value)}/></p>
             
             <button onClick={login}>Sign in</button> <br />
