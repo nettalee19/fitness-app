@@ -36,8 +36,8 @@ export default function Login() {
             <p>password:
             <input type="password" onChange={(e) => setPassword(e.target.value)}/></p>
             
-            <button onClick={login}>Sign in</button> <br />
-            Already a member?<button><Link to="/register">Sign up</Link></button>
+            <button onClick={login}>Login</button> <br />
+            Already a member?<button><Link to="/register">Register</Link></button>
 
         </div>
     )
