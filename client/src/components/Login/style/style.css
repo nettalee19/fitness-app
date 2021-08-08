@@ -3,7 +3,7 @@
     margin: 0 auto;
     width: 300px;
     margin-top: 20px;
-    border: chocolate 1px solid;
+    border: hsl(305, 85%, 87%) 3px solid;
     text-align: center;
     padding: 10px;
 }
